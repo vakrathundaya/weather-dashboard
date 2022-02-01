@@ -26,7 +26,15 @@ const getWeather=(city)=>{
                 return response,json()
                 .then(function(data){
                     const icon = ("<img src='https://openweathermap.org/img/w/" + data.current.weather[0].icon + ".png' alt='Weather icon'>")
-                    currentWeatherH3.innerHTML = cityName + " (" + new Date(Date.now()).toLocaleDateString + ") " + icon;
+                    currentWeatherH3.innerHTML = cityName + " (" + new Date(Date.now()).toLocaleDateString + ") " + icon
+
+                    const forecastDeatils = []
+
+                   //creating list items to hold current weather
+                   for(let i=0;i<=4;i++){
+                       const listItemEl = document.createElement("li")
+                        forecastDeatils.push(li)
+                   }
                 })
 
             })
