@@ -3,7 +3,7 @@
 const searchForm = document.querySelector("#search-form");
 const cityName = document.querySelector("#city-name");
 const currentWeatherUl = document.querySelector("#forecastNow #conditions");
-// const previousSearchContainer = document.querySelector("#previous-searches .card-body");
+const previousSearchContainer = document.querySelector("#previous-searches .card-body");
 const fiveDayWeatherContainer = document.querySelector("#fivedayForecast");
 const fiveDayHeader = document.querySelector("#fiveDay");
 const currentWeatherH3 = document.querySelector("#forecastNow h3");
@@ -94,6 +94,53 @@ const getWeather = (city) => {
             }
         })
 }
+
+
+
+const updateSearchHistory = () => {
+    // get previous searches from local storage
+    previousSearch = JSON.parse(localStorage.getItem("searches"));
+    const cityBtn = document.querySelectorAll("#previous-searches button");
+    if (previousSearch !== null) {
+        cityBtn.forEach(button => {
+            // making sure searched city is not repeated
+            for (let i = 0; i < previousSearch.length; i++)
+                if (button.dataset.city.includes(previousSearch[i])) {
+                    previousSearch.splice(i, i + 1);
+                }
+        })
+        for (let i = 0; i < previousSearch.length; i++) {
+            const searchButton = document.createElement("button");
+            searchButton.classList.add("m-2", "btn", "btn-light");
+            // Sets data-city attribute
+            searchButton.dataset.city = previousSearch[i];
+            searchButton.textContent = previousSearch[i];
+            searchButton.addEventListener("click", (event) => {
+                getWeather(event.target.dataset.city);
+            })
+            previousSearchContainer.appendChild(searchButton);
+        }
+
+    }
+}
+
+//global variable
+const cityArray = [];
+
+const updateLocalStorage = (city) => {
+    // Ensures searched city isn't pushed into array (and then localStorage) if city has already been searched
+    if (cityArray.includes(city)) {
+        return;
+    } else {
+        cityArray.push(city);
+        // Stores for next user visit
+        localStorage.setItem("searches", JSON.stringify(cityArray));
+
+        // Calls updateSearchHistory to add new search to previous search buttons
+        updateSearchHistory();
+    }
+} 
+
 // Adds event listener to search form
 searchForm.addEventListener("submit", (event) => {
     event.preventDefault();
