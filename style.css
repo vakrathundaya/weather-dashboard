@@ -1,7 +1,13 @@
+/* Base styles for document */
+body {
+    line-height: 1.5;
+}
+
 /* Header background */
 .navbar {
     background-color: darkblue;
 }
+
 /* header */
 .navbar .center {
     font-size: 2.5rem;
@@ -9,4 +15,41 @@
     text-align: center;
     margin: auto;
     width : 50%
+}
+
+/* Centers weather icons in 5-day cards */
+#daily-forecast #conditions img {
+    display: block;
+    
+}
+/* list style for 5 day cards */
+#conditions
+{
+    list-style-type: none;
+    float: left;
+    }
+
+
+/* Ensures input block stays centered within card */
+#search-form input {
+    width: 100%;
+    /* margin: 0; */
+}
+
+#search
+{
+    width: 100%;
+
+}
+
+@media only screen and (max-width: 530px) {
+      .navbar .center {
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .navbar .center {
+      line-height: 1.25;
+    }
 }
