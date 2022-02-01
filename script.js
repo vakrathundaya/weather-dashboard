@@ -22,7 +22,12 @@ const getWeather=(city)=>{
             //fecth to retrieve daily weather info
             fetch(oneCallUrl)
             .then(function(response){
-                
+                return response,json()
+                .then(function(data){
+                    const icon = ("<img src='https://openweathermap.org/img/w/" + data.current.weather[0].icon + ".png' alt='Weather icon'>")
+
+                })
+
             })
         })
     }
