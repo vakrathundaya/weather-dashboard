@@ -16,6 +16,9 @@ const getWeather=(city)=>{
     .then(function (response){
         return response.json()
         .then(function(data){
+            const cityName = data.name
+             // Creates URL for oneCall OpenWeather API from latitude and longitude of previous OpenWeather call
+             const oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&appid=dc33b13c1b1dacc4cd49e870ce1ff700`;
             
         })
     }
