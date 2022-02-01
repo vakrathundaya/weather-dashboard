@@ -1,58 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
-    <title>Weather Dashboard</title>
-
+ <head>
+    <title>Open Weather Dashboard</title>
     <!-- Bootstrap CDN link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
     <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
+
 <body>
-    <nav class="navbar">
-        <h1 class="center">Weather Dashboard</h1>
-    </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-3">
-                <div class="card">
-                    <h4 class="card-header">Search By City</h4>
-                    <form id="search-form" class="card-body">
-                        <input id="city-name" id="city-name" type="text">
-                        <button id="search" type="submit">Search                            
-                        </button>
-                    </form>
+    <body>
+        <nav class="navbar p-3">
+            <h1 class="center"> Weather Dashboard </h1>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="card">
+                        <h4 class="card-header">Search By City</h3>
+                        <form id="search-form" class="card-body">
+                            <!-- Input accept cities to search for from user -->
+                            <input name="city-name" id="city-name" type="text" class="form-input my-2" placeholder="San Diego" />
+                            <button id="search" type="submit" class="btn btn-primary">Search</button>
+                        </form>
+                      </div>
+       
+                
+                      <div id="previous-searches" class="card">
+                       <!-- Empty div to hold previous search buttons from script.js -->
+                        <div class="card-body d-flex flex-column mb-3 flex-wrap">
+                            
+                        </div>
+                      </div>
                 </div>
+                <!-- Forecast column -->
+                <div class="col-sm-9">
+                    <!--  Forecast Container -->
+                    <div class="card" id="forecastNow">
+                        <h3 class="card-header"></h3>
+                        <div class="card-body">
+                            <!-- Empty ul to hold current weather information from script.js -->
+                            <ul id="conditions">
 
-                <div class="card" id="preSearch">
-                    <div class="card-body">
-                        <!--previous search-->
+                            </ul>
+                        </div>
+                    </div>
+                    <h4 class="p-2 mt-3" id="fiveDay">5-Day Forecast</h4>
+                    <!-- Empty div to hold fivedays daily forecast details-->
+                    <div class="d-inline-flex flex-wrap p-2" id="fivedayForecast">
+                        
                     </div>
                 </div>
             </div>
-            <div class="col-sm-9">
-                <div class="card" id="forecastNow">
-                    <h3 class="card-header"></h3>
-                    <div class="card-body">
-                        <ul id="currentDetails">
-
-                        </ul>
-                    </div>
-                </div>
-                <h4 id="fiveDay">5 Day Forecast</h4>
-                <div id="fiveDayForecast"></div>
-            </div>
-    
-        
         </div>
-      
-    </div>
 
      <!-- Moment.js link -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
