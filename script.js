@@ -19,7 +19,11 @@ const getWeather=(city)=>{
             const cityName = data.name
              // Creates URL for oneCall OpenWeather API from latitude and longitude of previous OpenWeather call
              const oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&appid=dc33b13c1b1dacc4cd49e870ce1ff700`;
-            
+            //fecth to retrieve daily weather info
+            fetch(oneCallUrl)
+            .then(function(response){
+                
+            })
         })
     }
 }
