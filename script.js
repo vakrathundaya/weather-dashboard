@@ -45,6 +45,14 @@ const getWeather=(city)=>{
                    forecastDeatils.forEach(listItemEl => {
                        currentWeatherUl.append(listItemEl)
                    })
+
+                   //array to hold five day details
+                   fiveDayWeatherConditions = []
+
+                   for(i=0; i<5; i++){
+                       const fivedayDivEl = document.createElement("div")
+                       fivedayDivEl.innerHTML = `<div class="card"></div>`
+                   }
                 })
 
             })
