@@ -20,6 +20,11 @@ const getWeather = (city) => {
             // if city is not found
             if (!response.ok) {
                 currentWeatherUl.innerHTML = "";
+                currentWeatherH3.textContent = "Try again!";
+                const errorText = document.createElement("li");
+                errorText.textContent = "City not found.";
+                currentWeatherUl.appendChild(errorText);
+                fiveDayWeatherContainer.innerHTML = "";
             } else {
                 // Converts API response into json object
                 response.json()
