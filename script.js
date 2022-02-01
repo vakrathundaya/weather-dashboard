@@ -35,6 +35,16 @@ const getWeather=(city)=>{
                        const listItemEl = document.createElement("li")
                         forecastDeatils.push(li)
                    }
+
+                   forecastDeatils[0].innerHTML = data.current.temp
+                   forecastDeatils[1].innerHTML = data.current.humidity
+                   forecastDeatils[2].innerHTML = data.current.wind_speed
+                   forecastDeatils[3].innerHTML = data.current.uvi
+
+                   //adding list items to ul
+                   forecastDeatils.forEach(listItemEl => {
+                       currentWeatherUl.append(listItemEl)
+                   })
                 })
 
             })
