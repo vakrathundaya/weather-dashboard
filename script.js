@@ -6,6 +6,7 @@ const currentWeatherUl = document.querySelector("#forecastNow #currentDetails")
 const preSearchContainer = document.querySelector("#preSearch")
 const fiveDayConatainer =document.querySelector("#fivedayForecast")
 const fivedayHeader = document.querySelector("#fiveDay")
+const currentWeatherH3 = document.querySelector("#forecastNow h3")
 
 //storing API key
 var APIKey = "dc33b13c1b1dacc4cd49e870ce1ff700";
@@ -25,7 +26,7 @@ const getWeather=(city)=>{
                 return response,json()
                 .then(function(data){
                     const icon = ("<img src='https://openweathermap.org/img/w/" + data.current.weather[0].icon + ".png' alt='Weather icon'>")
-
+                    currentWeatherH3.innerHTML = cityName + " (" + new Date(Date.now()).toLocaleDateString + ") " + icon;
                 })
 
             })
