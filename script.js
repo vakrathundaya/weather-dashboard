@@ -50,13 +50,27 @@ const getWeather=(city)=>{
                    fiveDayWeatherConditions = []
 
                    for(i=0; i<5; i++){
-                       const fivedayDivEl = document.createElement("div")
-                       fivedayDivEl.innerHTML = `<div class="card"></div>`
+                       const fivedaycard = document.createElement("div")
+                       fivedayDivEl.innerHTML = `<div class="card">
+                       <h5>${moment().add(i + 1,"days").format("MM/DD/YYYY")}</h5>
+                       <ul>
+                       <li><img src='https://openweathermap.org/img/w/${data.daily[i].weather[0].icon}.png' alt="Weather icon"></li>
+                       <li>${data.daily[i].temp.day}</li>
+                       <li>${data.daily[i].humidity}</li>
+                       </div>`
+
+                       fiveDayWeatherConditions.push(fivedaycard)
                    }
+
+                   fiveDayWeatherConditions.forEach(element = > {
+                       fiveDayWeatherContainer.appendChild(element)
+                   })
                 })
 
             })
         })
     }
+
+
 }
  
