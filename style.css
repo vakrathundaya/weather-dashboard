@@ -1,0 +1,12 @@
+/* Header background */
+.navbar {
+    background-color: darkblue;
+}
+/* header */
+.navbar .center {
+    font-size: 2.5rem;
+    color: #fff;
+    text-align: center;
+    margin: auto;
+    width : 50%
+}
