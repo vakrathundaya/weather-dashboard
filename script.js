@@ -146,11 +146,21 @@ const updateLocalStorage = (city) => {
     }
 } 
 
+
 // Adds event listener to search form
 searchForm.addEventListener("submit", (event) => {
     event.preventDefault();
     
     let searchValue = cityName.value;
+    if (searchValue === "") {
+        currentWeatherH3.textContent = "Please enter a city!";
+        currentWeatherUl.innerHTML = "";
+        fiveDayWeatherContainer.innerHTML = "";
+        // Hides 5-day forecast if API won't be called
+        fiveDayHeader.classList.add("hidden");
+    } else{
+
     getWeather(searchValue);
-   
+    cityName.value = "";
+    }
 })
